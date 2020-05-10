@@ -1,7 +1,6 @@
 {
   "name": "demo-lambda-functions",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +9,15 @@
   "license": "ISC",
   "dependencies": {
     "mysql": "^2.18.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajsv29/demo-lambda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/surajsv29/demo-lambda/issues"
+  },
+  "homepage": "https://github.com/surajsv29/demo-lambda#readme",
+  "description": ""
 }
