@@ -6,7 +6,7 @@ const poorFunction = ()=>{
 
 const richFunction = callback => {
     console.log('I am rich function. See poorFunc below me');
-    callback();
+    callback();// We are simply executing the function here.
     console.log('This time I am below poor function')
 }
 
