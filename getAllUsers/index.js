@@ -1,5 +1,5 @@
 const sql = require('mysql')
-exports.handler = (event, context, callback)=>{
+exports.handler = async(event)=>{
 const connection = sql.createConnection({
     host: 'ch-buyogo-rds-ch-dev1-rdscluster-1dmi9tf2dmuce.cluster-ctgjyfgcje6u.eu-central-1.rds.amazonaws.com',
     user: 'masteruser',
@@ -9,14 +9,17 @@ const connection = sql.createConnection({
 
 connection.connect()
 
- connection.query('select * from demoUser',(error, results,field)=>{
-            if(!error){
-            callback(null, {"statusCode": 200, "body": JSON.stringify(results)})
-            connection.end()
-            }
-            else{
-            callback(error,null)
-            connection.end()
-            }
-        })
+ const promise = new Promise((resolve, reject)=>{
+    connection.query('select * from demoUser',(error, results,field)=>{
+        if(!error){
+        resolve({"statusCode": 200, "body": JSON.stringify(results)})
+        connection.end()
+        }
+        else{
+        reject(error)
+        connection.end()
+        }
+    })
+ })
+ return promise;
 }
